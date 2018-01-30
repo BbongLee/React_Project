@@ -4,19 +4,6 @@ import './App.css';
 import Movie from './Movie';
 
 //메인컴포넌트가 데이터 가짐.
-const movieTitles = [
-  "Matrix",
-  "Full Metal Jacket",
-  "Oldboy",
-  "Star Wars"
-]
-
-const movieImages = [
-  "https://images-na.ssl-images-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg",
-  "https://images-na.ssl-images-amazon.com/images/I/81XARapmq6L._RI_SX200_.jpg",
-  "https://images-na.ssl-images-amazon.com/images/I/91ONQ8FNHJL._SY445_.jpg",
-  "http://imgc.allpostersimages.com/img/posters/star-wars-the-force-awakens-one-sheet_u-L-F8G58H0.jpg",
-]
 
 const movies = [
 {
@@ -38,6 +25,8 @@ const movies = [
 ]
 
 class App extends Component {
+
+
   render() {
     return (
       <div className="App">

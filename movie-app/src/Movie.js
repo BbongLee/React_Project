@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './Movie.css';
 
 class Movie extends Component {
 
     static propTypes ={
-        title:React.propTypes.string.isRequired, //String이어야함
-        poster:React.propTypes.string.isRequired //isRequired -> 필수요건!! 있는지 없는지 알기 편함
+        title:PropTypes.string.isRequired, //String이어야함
+        poster:PropTypes.string.isRequired //isRequired -> 필수요건!! 있는지 없는지 알기 편함
     }
 
     render(){
@@ -22,7 +23,7 @@ class Movie extends Component {
 
 class MoviePoster extends Component{
     static propTypes = { //이미지 꼭 필요하니까!
-        poster: propTypes.string.isRequired
+        poster: PropTypes.string.isRequired
     }
     render(){
         return(
