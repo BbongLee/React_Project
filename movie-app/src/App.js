@@ -28,24 +28,25 @@ class App extends Component {
   //Render : componentWillMount() -> render() -> componentDidMount()
   //Update componentWillReceiveProps() -> shouldComponentUpdate() == true -> componentWillUpdate() -> render() -> componentDidUpdate()
   //랜더나 업데이트를 할때의 순서 : 항상 이렇게 작동!
-  //니콜라스 강사님 : willupdate일때 로딩중 아이콘을 돌게하고 후에는 숨기는 거 어떨까? (좋아요!)
-
-  componentWillMount(){
-    //컴포넌트가 존재하기 시작하면
-    // first
-    console.log('will mount')
+  
+  state = {
+    greeting: "Hello!"
   }
+
   componentDidMount(){
-    // third
-    // 리액트 세계에 컴포넌트가 자리 잡았구나!!
-    console.log('did mount')
+    setTimeout(()=>{
+      // this.state.greeting = "blabla" : Do not mutate state directly => render설정들이 작동하지 않아요!
+      //state를 바꿀 때, setState설정하기
+      this.setState({//업데이트마다 render작동
+        greeting : 'Hello again!!'
+      })
+    },5000) //5초 후 hello again으로 바뀌어요!
   }
 
   render() { // : 컴포넌트의 state가 바뀔때마다 발생됨
-    // second
-    console.log('did render')
     return (
       <div className="App">
+      {this.state.greeting} 
         {movies.map((movie, index) => { //movie마다 index를 주고 고유key값 만들어주기! 
           // 리스트 작성 방법 : movies 배열 --매핑--> 새로운 배열 => 더 더 단순해졌다!
           return <Movie title={movie.title} poster={movie.poster} key={index}/>
