@@ -21,15 +21,15 @@ class Movie extends Component {
     }
 }
 
-class MoviePoster extends Component{
-    static propTypes = { //이미지 꼭 필요하니까!
-        poster: PropTypes.string.isRequired
-    }
-    render(){
-        return(
-            <img src={this.props.poster} />
-        )
-    }
+//클래스 컴포넌트 대신 stateless functional 컴포넌트로 바꾸는 방법
+//render, lifecycl, component will mount, function, update state 다 필요없다
+//하나의 poster라는 props만 필요하다! return 뿐 ~ !!!
+function MoviePoster({poster}){
+    return (
+        <img src={poster} alt="Movie Poster"/>
+    )
 }
-
+MoviePoster.propTypes = {
+    poster: PropTypes.string.isRequired
+}
 export default Movie

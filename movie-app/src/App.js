@@ -8,6 +8,7 @@ class App extends Component {
   //Update componentWillReceiveProps() -> shouldComponentUpdate() == true -> componentWillUpdate() -> render() -> componentDidUpdate()
   //랜더나 업데이트를 할때의 순서 : 항상 이렇게 작동!
   
+  //니콜라스 : 똑똑한 컴포넌트는 state가 있고 멍청한 컴포넌트는 state가 없다 prop뿐.
   state = {
    
   }
