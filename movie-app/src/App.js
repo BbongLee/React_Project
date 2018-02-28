@@ -6,40 +6,20 @@ import Movie from './Movie';
 class App extends Component {
   //Render : componentWillMount() -> render() -> componentDidMount()
   //Update componentWillReceiveProps() -> shouldComponentUpdate() == true -> componentWillUpdate() -> render() -> componentDidUpdate()
-  //랜더나 업데이트를 할때의 순서 : 항상 이렇게 작동!
   
-  //니콜라스 : 똑똑한 컴포넌트는 state가 있고 멍청한 컴포넌트는 state가 없다 prop뿐.
   state = {
-   
+
   }
 
   componentDidMount(){
-   setTimeout(()=>{ //와 setTimeout(function(){는 동일, but 최신js - 옛js
-    this.setState({
-       movies : [
-      {
-        title:"Matrix",
-        poster:"https://images-na.ssl-images-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg",
-      },
-      {
-        title:"Full Metal Jacket",
-        poster:"https://images-na.ssl-images-amazon.com/images/I/81XARapmq6L._RI_SX200_.jpg",
-      },
-      {
-        title:"Oldboy",
-        poster:"https://images-na.ssl-images-amazon.com/images/I/91ONQ8FNHJL._SY445_.jpg",
-      },
-      {
-        title:"Star Wars",
-        poster:"http://imgc.allpostersimages.com/img/posters/star-wars-the-force-awakens-one-sheet_u-L-F8G58H0.jpg",
-      },
-      {
-        title:"Coco",
-        poster:"https://www.cineworld.ie/xmedia-cw/repo/feats/posters/HO00004273.jpg"
-      }
-      ]
-    })
-   }, 3000)
+    //실제 영화 api불러오기! 평점 순으로 정렬 :>  모든 링크가 fetch가능하답니다!
+    //ajax는 url을 자바스크립트로 비동기화(Asynchronous)방법으로 불러온다.
+    //니콜라스 : Ajax는 자바스크립트와 같이 데이터를 뒤에 숨어서 다룰 수 있어서 멋져!
+    fetch('https://yts.am/api/v2/list_movies.json?sortby=rating') //=> promise
+    //promise : 비동기화, 앞의 라인과 상관없이 작업한다. 다른 작업 수행이랑 관계없이 진행된다. 
+    //약속!의 원리와 비슷 2가지의 시나리오로 이루어짐 fetch와 같이 시나리오가 생기고 관리할 수 있다
+    .then() //위 라인이 완료되면 실행
+    .catch(err => console.log(err)) //에러나면 잡아서 보여줘!!
   }
   _renderMovies = ()=> { //최신 자바스크립트
     const movies=this.state.movies.map((movie, index)=>{
@@ -86,6 +66,8 @@ export default App;
   최신 자바스크립트에 대한 니콜라스의 링크!
   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
 
+  JSON : JavaScript Object Notationv, 오브젝트를 자바스크립트로 작성하는 기법
+  AJAX : 비동기화! 요즘은 xml이아니라 json이 되고있다. 새로고침 없이 작업 가능, 리액트와 작업이 간편하다
 
 */
 
